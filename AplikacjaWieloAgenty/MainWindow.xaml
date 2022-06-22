@@ -1,0 +1,39 @@
+﻿<Window x:Class="AplikacjaWieloAgenty.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AplikacjaWieloAgenty"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="879">
+    <Grid x:Name="grid" RenderTransformOrigin="0.509,0.428" Margin="2,10,10,-389">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="339*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="77*"/>
+            <ColumnDefinition Width="451*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock HorizontalAlignment="Left" Margin="29,22,0,0" TextWrapping="Wrap" Text="Jaki poziom realizmu cię interesuje?" VerticalAlignment="Top" RenderTransformOrigin="0.541,0.003" Height="19" Width="199" TextAlignment="Center"/>
+        <ComboBox x:Name="realizm" HorizontalAlignment="Left" Margin="280,19,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding ListaRealizm}" SelectedIndex="0" Grid.ColumnSpan="3" Height="22"/>
+        <TextBlock HorizontalAlignment="Left" Margin="29,57,0,0" TextWrapping="Wrap" Text="Na jakim urządzeniu zamierzasz grać?" VerticalAlignment="Top" RenderTransformOrigin="0.541,0.003" Height="19" Width="199" TextAlignment="Center"/>
+        <ComboBox x:Name="urzadzenie" HorizontalAlignment="Left" Margin="280,54,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding ListaUrzadzen}" SelectedIndex="0" Grid.ColumnSpan="3" Height="22"/>
+        <TextBlock HorizontalAlignment="Left" Margin="29,92,0,0" TextWrapping="Wrap" Text="Jaki typ samochodów Cię interesuje?" VerticalAlignment="Top" RenderTransformOrigin="0.541,0.003" Height="19" Width="199" TextAlignment="Center"/>
+        <ComboBox x:Name="samochod" HorizontalAlignment="Left" Margin="280,89,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding ListaSamochodow}" SelectedIndex="0" Grid.ColumnSpan="3" Height="22"/>
+        <TextBlock HorizontalAlignment="Left" Margin="29,128,0,0" TextWrapping="Wrap" Text="Jaki typ konkurencji preferujesz?" VerticalAlignment="Top" RenderTransformOrigin="0.541,0.003" Height="19" Width="199" TextAlignment="Center"/>
+        <ComboBox x:Name="konkurencja" HorizontalAlignment="Left" Margin="280,125,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding ListaKonkurencji}" SelectedIndex="0" Grid.ColumnSpan="3" Height="22"/>
+        <TextBlock HorizontalAlignment="Left" Margin="29,167,0,0" TextWrapping="Wrap" Text="Ile czasu jesteś gotów poświęcic na trening?" VerticalAlignment="Top" RenderTransformOrigin="0.541,0.003" Height="35" Width="199" TextAlignment="Center"/>
+        <ComboBox x:Name="trening" HorizontalAlignment="Left" Margin="280,164,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding ListaCzasu}" SelectedIndex="0" Grid.ColumnSpan="3" Height="22"/>
+        <Button Content="Propozycje" HorizontalAlignment="Left" Margin="280,209,0,0" VerticalAlignment="Top" Click="Button_Click" Height="24" Width="120" Grid.ColumnSpan="3"/>
+        <ComboBox x:Name="realizmWaga" HorizontalAlignment="Left" Margin="19,19,0,0" VerticalAlignment="Top" Width="54" ItemsSource="{Binding Waga}" SelectedIndex="0" Grid.Column="3" Height="22"/>
+        <ComboBox x:Name="urzadzenieWaga" HorizontalAlignment="Left" Margin="19,54,0,0" VerticalAlignment="Top" Width="54" ItemsSource="{Binding Waga}" SelectedIndex="0" Grid.Column="3" Height="22"/>
+        <ComboBox x:Name="samochodWaga" HorizontalAlignment="Left" Margin="19,89,0,0" VerticalAlignment="Top" Width="54" ItemsSource="{Binding Waga}" SelectedIndex="0" Grid.Column="3" Height="22"/>
+        <ComboBox x:Name="konkurencjaWaga" HorizontalAlignment="Left" Margin="19,125,0,0" VerticalAlignment="Top" Width="54" ItemsSource="{Binding Waga}" SelectedIndex="0" Grid.Column="3" Height="22"/>
+        <ComboBox x:Name="treningWaga" HorizontalAlignment="Left" Margin="19,164,0,0" VerticalAlignment="Top" Width="54" ItemsSource="{Binding Waga}" SelectedIndex="0" Grid.Column="3" Height="22"/>
+        <Label Content="Waga" HorizontalAlignment="Left" Margin="19,-7,0,0" VerticalAlignment="Top" Grid.Column="3" Height="26" Width="54"/>
+        <TextBox x:Name="cena" PreviewTextInput="PreviewTextInput" HorizontalAlignment="Left" Margin="30,264,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="76" Height="18"/>
+        <Label Content="Cena" HorizontalAlignment="Left" Margin="30,233,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.158,0.943" Height="26" Width="37"/>
+        <DataGrid x:Name="wynik" Grid.Column="3" d:ItemsSource="{Binding ., Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" Margin="106,6,10,547" AutoGenerateColumns="True" SelectionMode="Single" SelectionUnit="FullRow" SelectionChanged="wynik_SelectionChanged"/>
+        <Button Grid.Column="3" Content="Kup" HorizontalAlignment="Left" Margin="106,289,0,0" VerticalAlignment="Top" Height="31" Width="110" Click="Button_Click_1"/>
+
+    </Grid>
+</Window>
